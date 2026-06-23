@@ -1,5 +1,5 @@
 name: Euromillones
-version: "1.0.0"
+version: "1.1.0"
 slug: euromillones
 description: Generador de tickets, tracker de gastos y estadísticas del Euromillones
 url: https://github.com/CodeAnto/euromillones
@@ -7,7 +7,14 @@ arch:
   - aarch64
   - amd64
 init: false
+# Ingress: acceso seguro desde la barra lateral de HA y vía Cloudflare,
+# usando el login de HA (multiusuario). No expone nada por su cuenta.
+ingress: true
+ingress_port: 8099
+panel_icon: mdi:ticket-confirmation
+panel_title: Euromillones
+# Puerto directo opcional (para la card del dashboard / acceso local sin login)
 ports:
   "8099/tcp": 5337
 ports_description:
-  "8099/tcp": Interfaz web de Euromillones
+  "8099/tcp": Interfaz web de Euromillones (acceso directo, sin login de HA)

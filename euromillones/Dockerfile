@@ -1,8 +1,9 @@
 # ---------- Stage 1: build del frontend ----------
 FROM node:20-alpine AS frontend
 WORKDIR /build
-# En el add-on el frontend habla con el backend a través de nginx en /api
-ENV VITE_API_URL=/api
+# El frontend habla con el backend a través de nginx en "api" (ruta RELATIVA, sin / inicial).
+# Así funciona igual bajo el Ingress (/api/hassio_ingress/<token>/api/...) que en el puerto directo (/api/...)
+ENV VITE_API_URL=api
 COPY frontend/package.json ./
 RUN npm install
 COPY frontend/ ./

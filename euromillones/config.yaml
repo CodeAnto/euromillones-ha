@@ -1,0 +1,13 @@
+name: Euromillones
+version: "1.0.0"
+slug: euromillones
+description: Generador de tickets, tracker de gastos y estadísticas del Euromillones
+url: https://github.com/CodeAnto/euromillones
+arch:
+  - aarch64
+  - amd64
+init: false
+ports:
+  "8099/tcp": 5337
+ports_description:
+  "8099/tcp": Interfaz web de Euromillones

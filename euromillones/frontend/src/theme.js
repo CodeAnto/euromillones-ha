@@ -1,83 +1,93 @@
 import { createTheme } from '@mui/material/styles'
 
+// === SYNTHWAVE / RETRO-FUTURISM ===
+// Recomendado por ui-ux-pro-max para lottery/gaming: neón sobre noche, glow, 80s.
+// Paleta: magenta neón + cian eléctrico + oro, sobre azul noche profundo.
+const NEON_MAGENTA = '#ff4d8d'
+const NEON_CYAN = '#22d3ee'
+const NEON_GOLD = '#fcd34d'
+const NIGHT = '#0a0613'
+
 export const buildTheme = (mode = 'dark') => {
   const isDark = mode === 'dark'
   return createTheme({
     palette: {
       mode,
-      primary: { main: '#818cf8', light: '#a5b4fc', dark: '#6366f1' },     // indigo suave
-      secondary: { main: '#5eead4', light: '#99f6e4', dark: '#2dd4bf' },   // teal suave (solo acento)
+      primary: { main: NEON_MAGENTA, light: '#ff84b3', dark: '#e11d6b' },
+      secondary: { main: NEON_CYAN, light: '#67e8f9', dark: '#0891b2' },
       success: { main: '#34d399' },
-      error: { main: '#f87171' },
-      warning: { main: '#fbbf24' },
-      info: { main: '#7dd3fc' },
+      error: { main: '#fb7185' },
+      warning: { main: NEON_GOLD },
+      info: { main: '#818cf8' },
       text: isDark
-        ? { primary: '#e4e4e7', secondary: 'rgba(228,228,231,0.6)' }
-        : { primary: '#18181b', secondary: 'rgba(24,24,27,0.65)' },
+        ? { primary: '#f4f0ff', secondary: 'rgba(244,240,255,0.6)' }
+        : { primary: '#1a1430', secondary: 'rgba(26,20,48,0.65)' },
       background: isDark
-        ? { default: '#0a0a0f', paper: 'rgba(24, 24, 32, 0.5)' }
-        : { default: '#fafafa', paper: 'rgba(255, 255, 255, 0.65)' },
-      divider: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)',
+        ? { default: NIGHT, paper: 'rgba(22, 14, 40, 0.55)' }
+        : { default: '#f6f4ff', paper: 'rgba(255,255,255,0.7)' },
+      divider: isDark ? 'rgba(255,77,141,0.14)' : 'rgba(0,0,0,0.08)',
     },
-    shape: { borderRadius: 18 },
+    shape: { borderRadius: 16 },
     typography: {
-      fontFamily: '"Inter", system-ui, sans-serif',
-      h1: { fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, letterSpacing: -2 },
-      h2: { fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, letterSpacing: -1.5 },
-      h3: { fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, letterSpacing: -1.5 },
-      h4: { fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 700, letterSpacing: -1 },
-      h5: { fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 600, letterSpacing: -0.5 },
-      h6: { fontFamily: '"Bricolage Grotesque", sans-serif', fontWeight: 600, letterSpacing: -0.3 },
-      button: { fontWeight: 600, textTransform: 'none' },
-      overline: { letterSpacing: 2, fontWeight: 600, fontSize: 11 },
+      fontFamily: '"Chakra Petch", system-ui, sans-serif',
+      h1: { fontFamily: '"Russo One", sans-serif', fontWeight: 400, letterSpacing: 0.5 },
+      h2: { fontFamily: '"Russo One", sans-serif', fontWeight: 400, letterSpacing: 0.5 },
+      h3: { fontFamily: '"Russo One", sans-serif', fontWeight: 400, letterSpacing: 0.5 },
+      h4: { fontFamily: '"Russo One", sans-serif', fontWeight: 400 },
+      h5: { fontFamily: '"Russo One", sans-serif', fontWeight: 400 },
+      h6: { fontFamily: '"Russo One", sans-serif', fontWeight: 400 },
+      button: { fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1 },
+      overline: { letterSpacing: 3, fontWeight: 700, fontSize: 11 },
     },
     components: {
+      MuiCssBaseline: { styleOverrides: { body: { backgroundColor: 'transparent !important' } } },
       MuiPaper: {
         styleOverrides: {
           root: {
             backgroundImage: 'none',
-            backdropFilter: 'blur(20px) saturate(140%)',
-            WebkitBackdropFilter: 'blur(20px) saturate(140%)',
-            border: `1px solid ${isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)'}`,
+            backdropFilter: 'blur(18px) saturate(140%)',
+            WebkitBackdropFilter: 'blur(18px) saturate(140%)',
+            border: `1px solid ${isDark ? 'rgba(255,77,141,0.18)' : 'rgba(0,0,0,0.06)'}`,
             boxShadow: isDark
-              ? '0 8px 32px rgba(0,0,0,0.35)'
-              : '0 8px 32px rgba(30,30,60,0.06)',
+              ? '0 0 0 1px rgba(34,211,238,0.04), 0 10px 40px rgba(0,0,0,0.5)'
+              : '0 8px 32px rgba(40,30,80,0.08)',
           },
         },
       },
       MuiButton: {
         styleOverrides: {
-          root: { textTransform: 'none', fontWeight: 600, borderRadius: 12, paddingInline: 20 },
+          root: { borderRadius: 12, paddingInline: 22 },
           containedPrimary: {
-            background: '#6366f1',
+            background: `linear-gradient(135deg, ${NEON_MAGENTA}, #c026d3)`,
             color: '#fff',
-            boxShadow: '0 4px 16px rgba(99,102,241,0.25)',
+            boxShadow: '0 0 18px rgba(255,77,141,0.55), 0 0 4px rgba(255,77,141,0.9)',
             '&:hover': {
-              background: '#7c8aff',
-              boxShadow: '0 6px 20px rgba(99,102,241,0.35)',
+              background: `linear-gradient(135deg, #ff6fa3, ${NEON_MAGENTA})`,
+              boxShadow: '0 0 28px rgba(255,77,141,0.8), 0 0 6px rgba(255,77,141,1)',
             },
+          },
+          outlinedSecondary: {
+            borderColor: NEON_CYAN,
+            color: NEON_CYAN,
+            boxShadow: '0 0 12px rgba(34,211,238,0.25)',
+            '&:hover': { borderColor: NEON_CYAN, boxShadow: '0 0 18px rgba(34,211,238,0.5)' },
           },
         },
       },
       MuiTabs: {
-        styleOverrides: { root: { minHeight: 'auto' }, indicator: { display: 'none' } },
+        styleOverrides: {
+          root: { minHeight: 'auto' },
+          indicator: { height: 3, borderRadius: 3, background: NEON_CYAN, boxShadow: `0 0 10px ${NEON_CYAN}` },
+        },
       },
       MuiTab: {
         styleOverrides: {
           root: {
-            textTransform: 'none', fontWeight: 500, fontSize: 14,
-            minHeight: 38, borderRadius: 10, margin: '0 2px',
-            color: isDark ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.55)',
+            textTransform: 'uppercase', fontWeight: 600, fontSize: 13, letterSpacing: 1,
+            minHeight: 40, color: isDark ? 'rgba(244,240,255,0.5)' : 'rgba(0,0,0,0.55)',
             transition: 'all .2s',
-            '&:hover': {
-              color: isDark ? '#fff' : '#000',
-              background: isDark ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.04)',
-            },
-            '&.Mui-selected': {
-              color: isDark ? '#fff' : '#18181b',
-              background: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)',
-              fontWeight: 600,
-            },
+            '&:hover': { color: isDark ? NEON_CYAN : '#000' },
+            '&.Mui-selected': { color: isDark ? '#fff' : '#1a1430' },
           },
         },
       },
@@ -85,10 +95,10 @@ export const buildTheme = (mode = 'dark') => {
         styleOverrides: {
           root: {
             backgroundImage: 'none',
-            background: isDark ? 'rgba(10,10,15,0.72)' : 'rgba(255,255,255,0.72)',
-            backdropFilter: 'blur(24px) saturate(180%)',
-            WebkitBackdropFilter: 'blur(24px) saturate(180%)',
-            borderBottom: `1px solid ${isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.06)'}`,
+            background: isDark ? 'rgba(10,6,19,0.78)' : 'rgba(255,255,255,0.78)',
+            backdropFilter: 'blur(24px) saturate(160%)',
+            WebkitBackdropFilter: 'blur(24px) saturate(160%)',
+            borderBottom: `1px solid ${isDark ? 'rgba(255,77,141,0.16)' : 'rgba(0,0,0,0.06)'}`,
             boxShadow: 'none',
           },
         },
@@ -99,16 +109,13 @@ export const buildTheme = (mode = 'dark') => {
             borderRadius: 12,
             'input[type="date"]::-webkit-calendar-picker-indicator': {
               filter: isDark ? 'invert(0.85) brightness(1.2)' : 'invert(0.3)',
-              cursor: 'pointer', opacity: 0.8, marginLeft: 4,
+              cursor: 'pointer', opacity: 0.8,
             },
-            'input[type="date"]::-webkit-calendar-picker-indicator:hover': { opacity: 1 },
             'input[type="date"]': { colorScheme: isDark ? 'dark' : 'light' },
           },
         },
       },
-      MuiChip: { styleOverrides: { root: { fontWeight: 500, borderRadius: 8 } } },
-      // Para que el fondo aurora del index.html sea visible (no taparlo con el background.default)
-      MuiCssBaseline: { styleOverrides: { body: { backgroundColor: 'transparent !important' } } },
+      MuiChip: { styleOverrides: { root: { fontWeight: 600, borderRadius: 8 } } },
     },
   })
 }

@@ -1,43 +1,41 @@
 import { createTheme } from '@mui/material/styles'
 
-// === SYNTHWAVE / RETRO-FUTURISM ===
-// Recomendado por ui-ux-pro-max para lottery/gaming: neón sobre noche, glow, 80s.
-// Paleta: magenta neón + cian eléctrico + oro, sobre azul noche profundo.
-const NEON_MAGENTA = '#ff4d8d'
-const NEON_CYAN = '#22d3ee'
-const NEON_GOLD = '#fcd34d'
-const NIGHT = '#0a0613'
+// === DARK LIMPIO PREMIUM ===
+// Estilo sobrio y elegante (mismo espíritu limpio que Gastos), identidad propia con
+// esmeralda + oro (dinero / premio). Sin neón, sin estridencias.
+const EMERALD = '#10b981'
+const GOLD = '#fbbf24'
 
 export const buildTheme = (mode = 'dark') => {
   const isDark = mode === 'dark'
   return createTheme({
     palette: {
       mode,
-      primary: { main: NEON_MAGENTA, light: '#ff84b3', dark: '#e11d6b' },
-      secondary: { main: NEON_CYAN, light: '#67e8f9', dark: '#0891b2' },
+      primary: { main: EMERALD, light: '#34d399', dark: '#059669' },
+      secondary: { main: GOLD, light: '#fcd34d', dark: '#d97706' },
       success: { main: '#34d399' },
-      error: { main: '#fb7185' },
-      warning: { main: NEON_GOLD },
-      info: { main: '#818cf8' },
+      error: { main: '#f87171' },
+      warning: { main: GOLD },
+      info: { main: '#60a5fa' },
       text: isDark
-        ? { primary: '#f4f0ff', secondary: 'rgba(244,240,255,0.6)' }
-        : { primary: '#1a1430', secondary: 'rgba(26,20,48,0.65)' },
+        ? { primary: '#f1f5f9', secondary: '#94a3b8' }
+        : { primary: '#0f172a', secondary: 'rgba(15,23,42,0.6)' },
       background: isDark
-        ? { default: NIGHT, paper: 'rgba(22, 14, 40, 0.55)' }
-        : { default: '#f6f4ff', paper: 'rgba(255,255,255,0.7)' },
-      divider: isDark ? 'rgba(255,77,141,0.14)' : 'rgba(0,0,0,0.08)',
+        ? { default: '#060912', paper: 'rgba(20, 27, 43, 0.72)' }
+        : { default: '#f8fafc', paper: 'rgba(255,255,255,0.7)' },
+      divider: isDark ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.07)',
     },
     shape: { borderRadius: 16 },
     typography: {
-      fontFamily: '"Chakra Petch", system-ui, sans-serif',
-      h1: { fontFamily: '"Russo One", sans-serif', fontWeight: 400, letterSpacing: 0.5 },
-      h2: { fontFamily: '"Russo One", sans-serif', fontWeight: 400, letterSpacing: 0.5 },
-      h3: { fontFamily: '"Russo One", sans-serif', fontWeight: 400, letterSpacing: 0.5 },
-      h4: { fontFamily: '"Russo One", sans-serif', fontWeight: 400 },
-      h5: { fontFamily: '"Russo One", sans-serif', fontWeight: 400 },
-      h6: { fontFamily: '"Russo One", sans-serif', fontWeight: 400 },
-      button: { fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1 },
-      overline: { letterSpacing: 3, fontWeight: 700, fontSize: 11 },
+      fontFamily: '"Inter", system-ui, sans-serif',
+      h1: { fontFamily: '"Sora", sans-serif', fontWeight: 700, letterSpacing: -1.5 },
+      h2: { fontFamily: '"Sora", sans-serif', fontWeight: 700, letterSpacing: -1.2 },
+      h3: { fontFamily: '"Sora", sans-serif', fontWeight: 700, letterSpacing: -1 },
+      h4: { fontFamily: '"Sora", sans-serif', fontWeight: 700, letterSpacing: -0.5 },
+      h5: { fontFamily: '"Sora", sans-serif', fontWeight: 600 },
+      h6: { fontFamily: '"Sora", sans-serif', fontWeight: 600 },
+      button: { fontWeight: 600, textTransform: 'none' },
+      overline: { letterSpacing: 1.6, fontWeight: 700, fontSize: 11 },
     },
     components: {
       MuiCssBaseline: { styleOverrides: { body: { backgroundColor: 'transparent !important' } } },
@@ -45,49 +43,39 @@ export const buildTheme = (mode = 'dark') => {
         styleOverrides: {
           root: {
             backgroundImage: 'none',
-            backdropFilter: 'blur(18px) saturate(140%)',
-            WebkitBackdropFilter: 'blur(18px) saturate(140%)',
-            border: `1px solid ${isDark ? 'rgba(255,77,141,0.18)' : 'rgba(0,0,0,0.06)'}`,
+            backdropFilter: 'blur(14px)',
+            WebkitBackdropFilter: 'blur(14px)',
+            border: `1px solid ${isDark ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.06)'}`,
             boxShadow: isDark
-              ? '0 0 0 1px rgba(34,211,238,0.04), 0 10px 40px rgba(0,0,0,0.5)'
-              : '0 8px 32px rgba(40,30,80,0.08)',
+              ? '0 12px 40px rgba(0,0,0,0.45)'
+              : '0 8px 32px rgba(30,30,60,0.06)',
           },
         },
       },
       MuiButton: {
         styleOverrides: {
-          root: { borderRadius: 12, paddingInline: 22 },
+          root: { borderRadius: 12, paddingInline: 20 },
           containedPrimary: {
-            background: `linear-gradient(135deg, ${NEON_MAGENTA}, #c026d3)`,
-            color: '#fff',
-            boxShadow: '0 0 18px rgba(255,77,141,0.55), 0 0 4px rgba(255,77,141,0.9)',
-            '&:hover': {
-              background: `linear-gradient(135deg, #ff6fa3, ${NEON_MAGENTA})`,
-              boxShadow: '0 0 28px rgba(255,77,141,0.8), 0 0 6px rgba(255,77,141,1)',
-            },
-          },
-          outlinedSecondary: {
-            borderColor: NEON_CYAN,
-            color: NEON_CYAN,
-            boxShadow: '0 0 12px rgba(34,211,238,0.25)',
-            '&:hover': { borderColor: NEON_CYAN, boxShadow: '0 0 18px rgba(34,211,238,0.5)' },
+            background: 'linear-gradient(135deg, #10b981, #059669)',
+            color: '#04231a',
+            fontWeight: 700,
+            boxShadow: '0 6px 20px rgba(16,185,129,0.25)',
+            '&:hover': { background: 'linear-gradient(135deg, #34d399, #10b981)' },
           },
         },
       },
       MuiTabs: {
         styleOverrides: {
           root: { minHeight: 'auto' },
-          indicator: { height: 3, borderRadius: 3, background: NEON_CYAN, boxShadow: `0 0 10px ${NEON_CYAN}` },
+          indicator: { height: 3, borderRadius: 3, background: EMERALD },
         },
       },
       MuiTab: {
         styleOverrides: {
           root: {
-            textTransform: 'uppercase', fontWeight: 600, fontSize: 13, letterSpacing: 1,
-            minHeight: 40, color: isDark ? 'rgba(244,240,255,0.5)' : 'rgba(0,0,0,0.55)',
-            transition: 'all .2s',
-            '&:hover': { color: isDark ? NEON_CYAN : '#000' },
-            '&.Mui-selected': { color: isDark ? '#fff' : '#1a1430' },
+            textTransform: 'none', fontWeight: 600, fontSize: 14, minHeight: 40,
+            color: isDark ? '#94a3b8' : 'rgba(0,0,0,0.55)',
+            '&.Mui-selected': { color: isDark ? '#fff' : '#0f172a' },
           },
         },
       },
@@ -95,10 +83,10 @@ export const buildTheme = (mode = 'dark') => {
         styleOverrides: {
           root: {
             backgroundImage: 'none',
-            background: isDark ? 'rgba(10,6,19,0.78)' : 'rgba(255,255,255,0.78)',
+            background: isDark ? 'rgba(6,9,18,0.78)' : 'rgba(255,255,255,0.78)',
             backdropFilter: 'blur(24px) saturate(160%)',
             WebkitBackdropFilter: 'blur(24px) saturate(160%)',
-            borderBottom: `1px solid ${isDark ? 'rgba(255,77,141,0.16)' : 'rgba(0,0,0,0.06)'}`,
+            borderBottom: `1px solid ${isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)'}`,
             boxShadow: 'none',
           },
         },

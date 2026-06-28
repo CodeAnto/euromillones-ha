@@ -37,18 +37,17 @@ const Ball = ({ n, star, delay = 0 }) => (
       fontWeight: 700, fontSize: 22,
       position: 'relative',
       background: star
-        ? 'radial-gradient(circle at 32% 26%, #cffafe 0%, #22d3ee 45%, #0e7490 100%)'
-        : 'radial-gradient(circle at 32% 26%, #ffd6e7 0%, #ff4d8d 46%, #be185d 100%)',
+        ? 'radial-gradient(circle at 32% 26%, #fde68a 0%, #fbbf24 46%, #d97706 100%)'
+        : 'radial-gradient(circle at 32% 26%, #6ee7b7 0%, #10b981 46%, #047857 100%)',
       color: '#fff',
-      // Glow neón: doble halo + borde luminoso + relieve interno
-      border: `2px solid ${star ? 'rgba(103,232,249,0.9)' : 'rgba(255,132,179,0.9)'}`,
+      // Relieve sutil y sombra suave (premium, sin neón)
       boxShadow: star
-        ? '0 0 22px rgba(34,211,238,0.75), 0 0 6px rgba(34,211,238,1), inset 0 -4px 12px rgba(0,30,40,0.45), inset 0 2px 5px rgba(255,255,255,0.4)'
-        : '0 0 22px rgba(255,77,141,0.75), 0 0 6px rgba(255,77,141,1), inset 0 -4px 12px rgba(40,0,20,0.45), inset 0 2px 5px rgba(255,255,255,0.4)',
-      textShadow: '0 1px 3px rgba(0,0,0,0.45)',
+        ? '0 8px 22px rgba(217,119,6,0.30), inset 0 -3px 10px rgba(60,30,0,0.30), inset 0 2px 4px rgba(255,255,255,0.45)'
+        : '0 8px 22px rgba(5,150,105,0.30), inset 0 -3px 10px rgba(0,40,25,0.30), inset 0 2px 4px rgba(255,255,255,0.35)',
+      textShadow: '0 1px 2px rgba(0,0,0,0.35)',
       '&::after': {
         content: '""', position: 'absolute', inset: 0, borderRadius: '50%',
-        background: 'radial-gradient(circle at 32% 26%, rgba(255,255,255,0.55), transparent 44%)',
+        background: 'radial-gradient(circle at 32% 26%, rgba(255,255,255,0.5), transparent 44%)',
         pointerEvents: 'none',
       },
     }}>

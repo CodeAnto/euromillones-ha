@@ -5,93 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Chakra+Petch:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
     <title>Euromillones — stack-anto</title>
     <style>
-      :root {
-        --night: #0a0613;
-        --neon-magenta: #ff4d8d;
-        --neon-cyan: #22d3ee;
-        --neon-purple: #8b5cf6;
-      }
+      :root { color-scheme: dark; }
       html, body { margin: 0; padding: 0; min-height: 100%; }
       body {
-        font-family: 'Chakra Petch', system-ui, sans-serif;
-        background: var(--night);
-        color: #f4f0ff;
+        font-family: 'Inter', system-ui, sans-serif;
+        color: #f1f5f9;
+        /* Dark limpio: halos esmeralda + oro muy sutiles sobre navy profundo */
+        background:
+          radial-gradient(1000px 560px at 12% -10%, rgba(16,185,129,0.10), transparent 60%),
+          radial-gradient(900px 520px at 100% 0%, rgba(251,191,36,0.07), transparent 58%),
+          #060912;
+        background-attachment: fixed;
         overflow-x: hidden;
       }
-
-      /* Synthwave night sky */
-      .sky {
-        position: fixed; inset: 0; z-index: -3;
-        background:
-          radial-gradient(1100px 700px at 50% 120%, rgba(255,77,141,0.18), transparent 55%),
-          radial-gradient(800px 600px at 12% -10%, rgba(139,92,246,0.20), transparent 60%),
-          radial-gradient(700px 500px at 100% 0%, rgba(34,211,238,0.12), transparent 60%),
-          linear-gradient(180deg, #0a0613 0%, #120826 55%, #1b0b2e 100%);
-      }
-      .light-mode .sky {
-        background:
-          radial-gradient(900px 600px at 50% 120%, rgba(255,77,141,0.12), transparent 55%),
-          radial-gradient(700px 500px at 12% -10%, rgba(139,92,246,0.10), transparent 60%),
-          linear-gradient(180deg, #f6f4ff, #efeaff);
-      }
-
-      /* Retro neon grid receding to horizon */
-      .grid {
-        position: fixed; left: -50%; right: -50%; bottom: -10vh; height: 60vh; z-index: -2;
-        background-image:
-          linear-gradient(rgba(34,211,238,0.35) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255,77,141,0.30) 1px, transparent 1px);
-        background-size: 44px 44px;
-        transform: perspective(420px) rotateX(62deg);
-        transform-origin: bottom center;
-        mask-image: linear-gradient(180deg, transparent, #000 60%);
-        -webkit-mask-image: linear-gradient(180deg, transparent, #000 60%);
-        animation: grid-move 6s linear infinite;
-        opacity: 0.55;
-      }
-      .light-mode .grid { opacity: 0.28; }
-      @keyframes grid-move { from { background-position-y: 0; } to { background-position-y: 44px; } }
-
-      /* Glowing retro sun on the horizon */
-      .sun {
-        position: fixed; left: 50%; bottom: 8vh; transform: translateX(-50%); z-index: -2;
-        width: 320px; height: 320px; border-radius: 50%;
-        background: linear-gradient(180deg, #fcd34d 0%, #ff4d8d 55%, #8b5cf6 100%);
-        filter: blur(2px);
-        box-shadow: 0 0 120px rgba(255,77,141,0.45);
-        -webkit-mask-image: repeating-linear-gradient(180deg, #000 0 14px, transparent 14px 20px);
-        mask-image: repeating-linear-gradient(180deg, #000 0 14px, transparent 14px 20px);
-        opacity: 0.5;
-      }
-      .light-mode .sun { opacity: 0.3; }
-
-      /* CRT scanlines overlay */
-      .scanlines {
-        position: fixed; inset: 0; z-index: 100; pointer-events: none;
-        background: repeating-linear-gradient(180deg, rgba(0,0,0,0.10) 0 1px, transparent 1px 3px);
-        mix-blend-mode: multiply; opacity: 0.5;
-      }
-      .light-mode .scanlines { opacity: 0.18; }
+      .light-mode body { color: #0f172a; }
 
       ::-webkit-scrollbar { width: 10px; height: 10px; }
       ::-webkit-scrollbar-track { background: transparent; }
-      ::-webkit-scrollbar-thumb { background: rgba(255,77,141,0.25); border-radius: 5px; }
-      ::-webkit-scrollbar-thumb:hover { background: rgba(255,77,141,0.45); }
-      ::selection { background: #ff4d8d66; color: #fff; }
-
-      @media (prefers-reduced-motion: reduce) {
-        .grid { animation: none; }
-      }
+      ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 5px; }
+      ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.16); }
+      ::selection { background: rgba(16,185,129,0.35); color: #fff; }
     </style>
   </head>
   <body>
-    <div class="sky"></div>
-    <div class="sun"></div>
-    <div class="grid"></div>
-    <div class="scanlines"></div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

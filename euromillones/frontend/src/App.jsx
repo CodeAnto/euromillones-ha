@@ -85,8 +85,8 @@ export default function App({ mode, onToggleMode }) {
             <Box sx={{
               width: 40, height: 40, borderRadius: '12px',
               display: 'grid', placeItems: 'center',
-              background: 'linear-gradient(135deg, #ff4d8d, #8b5cf6)',
-              boxShadow: '0 0 18px rgba(255,77,141,0.55), inset 0 1px 0 rgba(255,255,255,0.25)',
+              background: 'linear-gradient(135deg, #10b981, #059669)',
+              boxShadow: '0 6px 18px rgba(16,185,129,0.3), inset 0 1px 0 rgba(255,255,255,0.25)',
             }}>
               <AutoAwesomeIcon sx={{ color: '#fff', fontSize: 20 }} />
             </Box>
